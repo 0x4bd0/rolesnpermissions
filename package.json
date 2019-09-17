@@ -4,7 +4,7 @@
   "description": "rolesnpermissions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node -e 'require(\"./test\")'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/0x4bd0/rolesnpermissions/issues"
   },
-  "homepage": "https://github.com/0x4bd0/rolesnpermissions#readme"
+  "homepage": "https://github.com/0x4bd0/rolesnpermissions#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
