@@ -12,8 +12,6 @@ var perm = function(user) {
 
     if(this.continue==1)
     {
-        console.log('can')
-
         const reducedPermissions=[];
         _.forEach(this.user.permissions, function(value) {
             reducedPermissions.push(value.name)
@@ -35,7 +33,6 @@ var perm = function(user) {
   perm.prototype.inTeam = function(team) {
     if(this.continue==1)
     {
-        console.log('team')
         const reducedPermissions=[];
         _.forEach(this.user.services, function(value) {
             reducedPermissions.push(value.name)
@@ -71,8 +68,6 @@ var perm = function(user) {
   perm.prototype.inRegion = function(region) {
     if(this.continue==1)
     {
-        console.log('region')
-
         const reducedPermissions=[];
         _.forEach(this.user.regions, function(value) {
             reducedPermissions.push(value.name)
@@ -109,8 +104,6 @@ var perm = function(user) {
 perm.prototype.inCountry = function(country) {
     if(this.continue==1)
     {
-        console.log('country')
-
         const reducedPermissions=[];
         _.forEach(this.user.countries, function(value) {
             reducedPermissions.push(value.name)

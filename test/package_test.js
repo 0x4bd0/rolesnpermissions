@@ -29,6 +29,18 @@ describe('Nothing passed to check',function(){
     })
 })
 
+describe('Did not pass an object',function(){
+   
+    it('Passed a STRING',function(done){
+        assert.throws(function () { new perm("user")}, TypeError, "Perm requires a valide object parameter");
+        done();
+    })
+    it('Passed a INTEGER',function(done){
+        assert.throws(function () { new perm(2) }, TypeError, "Perm requires a valide object parameter");
+        done();
+    })
+})
+
 describe('User has permissions',function(){
     
     it('has CAN permissions',function(done){
