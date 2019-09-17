@@ -1,0 +1,19 @@
+{
+  "name": "rolesnpermissions",
+  "version": "1.0.0",
+  "description": "rolesnpermissions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x4bd0/rolesnpermissions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0x4bd0/rolesnpermissions/issues"
+  },
+  "homepage": "https://github.com/0x4bd0/rolesnpermissions#readme"
+}
