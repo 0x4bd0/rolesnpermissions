@@ -18,10 +18,10 @@ var perm = function(user) {
           });
         if(_.includes(reducedPermissions, permission))
             {
-                this.logic=this.logic*true
+                this.logic*=true
             } 
             else{
-                this.logic=this.logic*false
+                this.logic*=false
             }
             this.checked=1;
             this.logic==false?this.continue=0:""
@@ -41,20 +41,20 @@ var perm = function(user) {
           {
             if(_.includes(reducedPermissions, team))
             {
-                this.logic=this.logic*true
+                this.logic*=true
             } 
             else{
-                this.logic=this.logic*false
+                this.logic*=false
             }
           }
           else if(typeof team =="object")
           {
             if(_.difference(team,reducedPermissions).length === 0)
             {
-                this.logic=this.logic*true
+                this.logic*=true
             } 
             else{
-                this.logic=this.logic*false
+                this.logic*=false
             }
           }
           this.checked=1;
@@ -76,20 +76,20 @@ var perm = function(user) {
         {
           if(_.includes(reducedPermissions, region))
           {
-              this.logic=this.logic*true
+              this.logic*=true
           } 
           else{
-              this.logic=this.logic*false
+              this.logic*=false
           }
         }
         else if(typeof region =="object")
         {
           if(_.difference(region,reducedPermissions).length === 0)
           {
-              this.logic=this.logic*true
+              this.logic*=true
           } 
           else{
-              this.logic=this.logic*false
+              this.logic*=false
           }
         }
         this.checked=1;
@@ -112,20 +112,20 @@ perm.prototype.inCountry = function(country) {
         {
           if(_.includes(reducedPermissions, country))
           {
-              this.logic=this.logic*true
+              this.logic*=true
           } 
           else{
-              this.logic=this.logic*false
+              this.logic*=false
           }
         }
         else if(typeof country =="object")
         {
           if(_.difference(country,reducedPermissions).length === 0)
           {
-              this.logic=this.logic*true
+              this.logic*=true
           } 
           else{
-              this.logic=this.logic*false
+              this.logic*=false
           }
         }
         this.checked=1;
