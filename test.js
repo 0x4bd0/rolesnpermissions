@@ -23,10 +23,7 @@ const user=
 
 console.log(
     new perm(user)
-    .can('create-user')
-    .inTeam(['food','yassir'])
-    .inRegion('Algiers')
-    .inCountry('Algeria')
+    .inTeam(["ya","dd"])
     .check()
 )
     
