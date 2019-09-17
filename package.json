@@ -4,7 +4,8 @@
   "description": "rolesnpermissions",
   "main": "index.js",
   "scripts": {
-    "test": "node -e 'require(\"./test\")'"
+    "test": "mocha",
+    "try": "node -e 'require(\"./test\")'"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/0x4bd0/rolesnpermissions#readme",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "mocha": "^6.2.0"
   }
 }

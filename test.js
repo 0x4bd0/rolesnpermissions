@@ -21,7 +21,8 @@ const user=
 }
 
 
-console.log(new perm(user)
+console.log(
+    new perm(user)
     .can('create-user')
     .inTeam(['food','yassir'])
     .inRegion('Algiers')
