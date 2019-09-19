@@ -139,7 +139,9 @@ perm.prototype.inCountry = function(country) {
   
 
   perm.prototype.check = function(res) {  
-    return  this.checked==0?"Please perfom a check first": (this.logic==0?res.send(404):"");
+    return  this.checked==0?"Please perfom a check first": (this.logic==0?res.status(419).send({
+      message:"Missing privilege!"
+    }):"");
   };
 
   module.exports=perm;
