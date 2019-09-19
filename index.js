@@ -138,8 +138,8 @@ perm.prototype.inCountry = function(country) {
 };
   
 
-  perm.prototype.check = function() {  
-    return  this.checked==0?"Please perfom a check first": this.logic;
+  perm.prototype.check = function(res) {  
+    return  this.checked==0?"Please perfom a check first": (this.logic==0?res.send(404):"");
   };
 
   module.exports=perm;
