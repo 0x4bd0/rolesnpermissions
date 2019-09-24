@@ -13,7 +13,7 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.permissions, function(value) {
+        _.forEach(this.user.data.permissions, function(value) {
             reducedPermissions.push(value.name)
           });
         if(_.includes(reducedPermissions, permission))
@@ -34,7 +34,7 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.services, function(value) {
+        _.forEach(this.user.data.services, function(value) {
             reducedPermissions.push(value.name)
           });
           if(typeof team =="string")
@@ -69,7 +69,7 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.regions, function(value) {
+        _.forEach(this.user.data.regions, function(value) {
             reducedPermissions.push(value.name)
           });
         if(typeof region =="string")
@@ -105,7 +105,7 @@ perm.prototype.inCountry = function(country) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.countries, function(value) {
+        _.forEach(this.user.data.countries, function(value) {
             reducedPermissions.push(value.name)
           });
         if(typeof country =="string")
