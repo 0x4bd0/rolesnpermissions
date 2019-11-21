@@ -13,9 +13,11 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.permissions, function(value) {
+        _.forEach(this.user.data.permissions, function(value) {
             reducedPermissions.push(value.name)
           });
+          if(typeof permission =="string")
+          {
         if(_.includes(reducedPermissions, permission))
             {
                 this.logic*=true
@@ -23,8 +25,20 @@ var perm = function(user) {
             else{
                 this.logic*=false
             }
-            this.checked=1;
-            this.logic==false?this.continue=0:""
+          }
+          else if(typeof permission =="object")
+          {
+            if(_.difference(permission,reducedPermissions).length === 0)
+            {
+                this.logic*=true
+            } 
+            else{
+                this.logic*=false
+            }
+          }
+          this.checked=1;
+          this.logic==false?this.continue=0:""
+
     }
     return this;
     
@@ -34,8 +48,8 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.services, function(value) {
-            reducedPermissions.push(value.name)
+        _.forEach(this.user.data.services, function(value) {
+            reducedPermissions.push(value._id)
           });
           if(typeof team =="string")
           {
@@ -69,8 +83,8 @@ var perm = function(user) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.regions, function(value) {
-            reducedPermissions.push(value.name)
+        _.forEach(this.user.data.regions, function(value) {
+            reducedPermissions.push(value._id)
           });
         if(typeof region =="string")
         {
@@ -105,8 +119,8 @@ perm.prototype.inCountry = function(country) {
     if(this.continue==1)
     {
         const reducedPermissions=[];
-        _.forEach(this.user.countries, function(value) {
-            reducedPermissions.push(value.name)
+        _.forEach(this.user.data.countries, function(value) {
+            reducedPermissions.push(value._id)
           });
         if(typeof country =="string")
         {
@@ -138,8 +152,10 @@ perm.prototype.inCountry = function(country) {
 };
   
 
-  perm.prototype.check = function() {  
-    return  this.checked==0?"Please perfom a check first": this.logic;
+  perm.prototype.check = function(res) {  
+    return  this.checked==0?"Please perfom a check first": (this.logic==0?res.status(403).send({
+      message:"Missing privilege!"
+    }):"");
   };
 
   module.exports=perm;
