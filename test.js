@@ -23,7 +23,7 @@ const user=
 
 console.log(
     new perm(user)
-    .inTeam(["yassir","food"])
+    
     .check()
 )
     
