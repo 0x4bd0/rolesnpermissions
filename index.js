@@ -16,6 +16,8 @@ var perm = function(user) {
         _.forEach(this.user.data.permissions, function(value) {
             reducedPermissions.push(value.name)
           });
+          if(typeof permission =="string")
+          {
         if(_.includes(reducedPermissions, permission))
             {
                 this.logic*=true
@@ -23,8 +25,20 @@ var perm = function(user) {
             else{
                 this.logic*=false
             }
-            this.checked=1;
-            this.logic==false?this.continue=0:""
+          }
+          else if(typeof permission =="object")
+          {
+            if(_.difference(permission,reducedPermissions).length === 0)
+            {
+                this.logic*=true
+            } 
+            else{
+                this.logic*=false
+            }
+          }
+          this.checked=1;
+          this.logic==false?this.continue=0:""
+
     }
     return this;
     
