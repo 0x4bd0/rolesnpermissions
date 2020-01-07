@@ -45,12 +45,7 @@ var perm = function(user) {
   };
 
   perm.prototype.inTeam = function(team) {
-    console.log("team : ")
-    console.log(team)
-    console.log("---------------")
-    console.log(this.user.data)
-    console.log("---------------")
-
+    
     if(this.continue==1)
     {
         const reducedPermissions=[];
