@@ -45,12 +45,14 @@ var perm = function(user) {
   };
 
   perm.prototype.inTeam = function(team) {
+    
     if(this.continue==1)
     {
         const reducedPermissions=[];
         _.forEach(this.user.data.services, function(value) {
-            reducedPermissions.push(value._id)
+            reducedPermissions.push(_.toString( value._id))
           });
+         
           if(typeof team =="string")
           {
             if(_.includes(reducedPermissions, team))
@@ -84,7 +86,7 @@ var perm = function(user) {
     {
         const reducedPermissions=[];
         _.forEach(this.user.data.regions, function(value) {
-            reducedPermissions.push(value._id)
+            reducedPermissions.push(_.toString( value._id))
           });
         if(typeof region =="string")
         {
@@ -120,7 +122,7 @@ perm.prototype.inCountry = function(country) {
     {
         const reducedPermissions=[];
         _.forEach(this.user.data.countries, function(value) {
-            reducedPermissions.push(value._id)
+            reducedPermissions.push(_.toString( value._id))
           });
         if(typeof country =="string")
         {
@@ -152,10 +154,16 @@ perm.prototype.inCountry = function(country) {
 };
   
 
-  perm.prototype.check = function(res) {  
-    return  this.checked==0?"Please perfom a check first": (this.logic==0?res.status(403).send({
+perm.prototype.check = function(res) {  
+    
+  return new Promise((resolve,rej)=>{
+
+    this.logic==0?rej(res.status(403).send({
       message:"Missing privilege!"
-    }):"");
-  };
+    })):resolve("1")
+
+   
+  })  
+};
 
   module.exports=perm;
